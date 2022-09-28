@@ -5,11 +5,11 @@ class Contact {
     private int zip;
     private long phoneNumber;
 
-/**
- * Used Constructor to store the Parameter
- * Also used this keyword to make difference between class name variable and constructor name variable
- */
-    public  Contact(String firstName, String lastName, String address, String city, String state, String email, int zip, long phoneNumber) {
+    /**
+     * Used Constructor to store the Parameter
+     * Also used this keyword to make difference between class name variable and constructor name variable
+     */
+    public  Contact() {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -83,6 +83,3 @@ class Contact {
         this.phoneNumber = phoneNumber;
     }
 }
-
-
-

@@ -1,30 +1,75 @@
 package com.collection;
-
+import java.util.Scanner;
+import java.util.ArrayList;
 public class AddressBook {
-    /**
-     * create a main method ,all program execute in main method
-     * @param args no arguments
-     */
+        ArrayList<Contact> arrayDetails = new ArrayList<Contact>();
+        /**
+         * The Scanner class is used to get user input, and it is found in the java.util package.
+         * create a scanner class object
+         */
+        Scanner sc = new Scanner(System.in);
 
-    public static void main(String[] args) {
         /**
-         * 1st print welcome msg.
+         * This method is used to add details to address book
          */
-        System.out.println("Welcome to Address Book System\n");
+        public void addDetails () {
+            /**
+             * create a object an contacts class.
+             * object name is info
+             */
+            Contact info = new Contact();
+
+            System.out.println("Enter the first name");
+            info.setFirstName(sc.nextLine());
+            System.out.println("Enter the last name");
+            info.setLastName(sc.nextLine());
+            System.out.println("Enter the address");
+            info.setAddress(sc.nextLine());
+            System.out.println("Enter the city");
+            info.setCity(sc.nextLine());
+            System.out.println("Enter the state");
+            info.setState(sc.nextLine());
+            System.out.println("Enter the email");
+            info.setEmail(sc.nextLine());
+            System.out.println("Enter the zip code");
+            info.setZip(sc.nextInt());
+            System.out.println("Enter the phone number");
+            info.setPhoneNumber(sc.nextLong());
+            arrayDetails.add(info);
+            sc.close();
+        }
+
         /**
-         * We are just calling an object using class name.
-         * Simply passing the argument value according to the parameter defined in the constructor.
+         * This method is used to display the added information
          */
-        Contact details = new Contact("Poonam", "Desai", "Shirol", "Shirol",
-                "Maharashtra", "loharpoonam98@gmail.com", 416103, 7058835985l);
-        System.out.println("The following contact details is mentioned below : \n");
-        System.out.println("First Name : " + details.getFirstName());
-        System.out.println("Last Name  : " + details.getLastName());
-        System.out.println("Address    : " + details.getAddress());
-        System.out.println("City       : " + details.getCity());
-        System.out.println("State      : " + details.getState());
-        System.out.println("E-mail     : " + details.getEmail());
-        System.out.println("Zip Code   : " + details.getZip());
-        System.out.println("Phone No   : " + details.getPhoneNumber());
+        public void display() {
+            System.out.println(arrayDetails);
+        }
+
+        /**
+         * create a main method all program execute in main method
+         * @param args no arguments
+         */
+        public static void main (String[]args){
+            /**
+             * 1st print the welcome msg.
+             */
+            System.out.println("Welcome to Address Book Program");
+            /**
+             * create a object name as details for  AddressBookSystem  class
+             * create object bcoz AddressBookSystem in this class all method is non static
+             */
+            AddressBook details = new AddressBook();
+            /**
+             * calling method to object name . method name
+             * object name.method name;
+             * object=details
+             * method=addDetails(),display()
+             */
+            details.addDetails();
+            details.display();
+        }
     }
-}
+
+
+
