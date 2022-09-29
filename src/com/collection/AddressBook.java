@@ -8,6 +8,10 @@ public class AddressBook {
      * It implements the List interface.
      */
     ArrayList<Contact> arrayDetails = new ArrayList<Contact>();
+    /**
+     * The Scanner class is used to get user input, and it is found in the java.util package.
+     * create a scanner class object
+     */
     static Scanner sc = new Scanner(System.in);
 
     /**
@@ -37,11 +41,21 @@ public class AddressBook {
         System.out.println("Enter the phone number");
         info.setPhoneNumber(sc.nextLong());
         arrayDetails.add(info);
+//        sc.close();
     }
+    /**
+     *This method is used to edit the details in address book
+     */
+
+    public void display(){
+        System.out.println(arrayDetails);
+    }
+
     /**
      * create a method name as editDetails.
      * This method is used to edit the details in address book
      */
+
     public void editDetails() {
         System.out.println("Confirm your first name to edit details: ");
         String confirmName = sc.next();
@@ -62,6 +76,11 @@ public class AddressBook {
                 System.out.println("Select form below to change: ");
                 System.out.println("\n1.First Name\n2.Last Name\n3.Address\n4.city\n5.State\n6.Zip\n7.Mobile number\n8.Email");
                 int edit = sc.nextInt();
+                // sc.close();
+
+                /**
+                 * switch case is used for what u want edit
+                 */
                 switch (edit) {
                     case 1:
                         System.out.println("Enter first name");
@@ -148,24 +167,28 @@ public class AddressBook {
          */
         AddressBook details = new AddressBook();
         /**
-         * calling method to object name . method name
-         * object name.method name;
-         * object=details
-         * method=addDetails(),display()
+         * declaration of variable
          */
-        details.addDetails();
-
-        int i = 0;
-        while (i == 0) {
+        int  input;
+        int ans;
+        /**
+         * create scanner class object
+         */
+        Scanner scanner = new Scanner(System.in);
+        /**
+         * using do while loop
+         */
+        do {
             /**
-             * 1st print the welcome msg.
+             * 1st print welcome msg
              */
             System.out.println("Welcome to Address Book Program");
             System.out.println("What do you want to do: ");
             System.out.println("1.Add details.\n2.Edit details.\n3.Delete Details.");
             int choose = sc.nextInt();
             /**
-             * calling method in switch case
+             * switch case is used
+             * calling the method in switch case
              */
             switch (choose) {
                 case 1:
@@ -178,12 +201,19 @@ public class AddressBook {
                     details.deleteDetails();
                     break;
                 default:
-                    i = 1;
-                    System.out.println("Wrong option");
+                    System.out.println("Invalid! option");
                     break;
             }
-        }
-
+            /**
+             * in switch case got the condition then break the statement and get the user input
+             *
+             */
+            System.out.println("Do you want to continue?(0/1)");
+            ans=scanner.nextInt();
+            /**
+             * if while condition is true then update in do conditions.
+             */
+        }while(ans==1);
     }
 }
 
